@@ -53,13 +53,38 @@
         <div class="product-scene reveal" aria-label="Vista de Azimut en computadora y teléfono">
           <div class="sun-mark" aria-hidden="true"></div>
           <div class="laptop">
+            <svg class="laptop-frame" viewBox="0 0 600 300" preserveAspectRatio="none" aria-hidden="true">
+              <defs>
+                <linearGradient id="bezelGrad" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0" stop-color="#1c3f66"/>
+                  <stop offset="1" stop-color="#0c1f38"/>
+                </linearGradient>
+                <linearGradient id="deckGrad" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0" stop-color="#234b78"/>
+                  <stop offset="1" stop-color="#0c1f38"/>
+                </linearGradient>
+                <pattern id="keyPattern" width="17" height="14" patternUnits="userSpaceOnUse">
+                  <rect x="2" y="2" width="13" height="9" rx="2.5" fill="rgba(255,255,255,.16)"/>
+                </pattern>
+                <clipPath id="deckClip">
+                  <polygon points="20,238 580,238 602,288 -2,288"/>
+                </clipPath>
+              </defs>
+              <ellipse cx="300" cy="294" rx="280" ry="14" fill="rgba(6,35,68,.18)"/>
+              <polygon points="-2,288 602,288 596,296 4,296" fill="#081627"/>
+              <polygon points="20,238 580,238 602,288 -2,288" fill="url(#deckGrad)"/>
+              <rect x="-2" y="238" width="604" height="50" clip-path="url(#deckClip)" fill="url(#keyPattern)"/>
+              <rect x="255" y="266" width="90" height="16" rx="5" clip-path="url(#deckClip)" fill="rgba(255,255,255,.12)"/>
+              <rect x="20" y="230" width="560" height="8" fill="#0a1a2e"/>
+              <rect x="20" y="0" width="560" height="230" rx="14" fill="url(#bezelGrad)"/>
+              <circle cx="300" cy="7" r="2.2" fill="rgba(255,255,255,.5)"/>
+            </svg>
             <div class="laptop-screen">
               <div class="mock-brand"><img src="assets/icono-azimut.png" alt=""><b>Azimut</b></div>
               <p>Tu cuenta,<br><strong>siempre a la vista.</strong></p>
               <small>Pagos, movimientos y todo listo para la próxima aventura.</small>
               <a class="video-orb" href="#video-player" aria-label="Ver video de presentación"><span>▶</span></a>
             </div>
-            <div class="laptop-base" aria-hidden="true"><span class="laptop-trackpad"></span></div>
           </div>
           <div class="phone">
             <img class="phone-shot" src="assets/principal-mobile.jpg" alt="Pantalla principal de Azimut con saldo, pagos y movimientos">
