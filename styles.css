@@ -10,7 +10,6 @@ footer{background:linear-gradient(90deg,#042b58,#063f7e);color:#c7d9eb;padding:2
 @media (max-width:640px){.shell{width:min(100% - 28px,1160px)}.nav-wrap{height:78px}.brand{width:185px}.hero{padding-top:120px}.hero h1{font-size:2.55rem}.hero-actions{flex-direction:column;align-items:stretch}.hero-points{display:grid;grid-template-columns:1fr;justify-items:start;text-align:left;width:max-content;max-width:100%;margin-inline:auto}.hero-points li{max-width:none}.product-scene{height:420px}.laptop{width:87%;height:58%;top:24%}.laptop-screen{padding:38px 20px}.laptop-screen p{font-size:1.35rem}.phone{width:39%;min-width:150px;height:70%;padding:0;border-width:6px}.floating-icon{width:72px;left:37%}.video-orb{width:72px;height:72px;font-size:1.4rem;left:43%}.note{display:none}.family-art{background-size:auto 100%;background-position:70% bottom;opacity:.3}.family-message{width:100%;text-align:center;padding:75px 0 210px}.family-message p{margin-inline:auto}.scout-badge{right:50%;transform:translateX(50%) rotate(-4deg);top:auto;bottom:40px}.footer-grid>div{flex-wrap:wrap}.footer-grid nav{flex-wrap:wrap}}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.reveal{opacity:1;transform:none;transition:none}.button,.feature-card{transition:none}}
 .nav-wrap{height:130px;padding-top:10px}
-.hero{padding-top:205px}
 @media (max-width:640px){.nav-wrap{height:98px;padding-top:8px}.hero{padding-top:145px}}
 
 .footer-grid{grid-template-columns:1.5fr 1fr auto auto}
@@ -35,12 +34,12 @@ footer{background:linear-gradient(90deg,#042b58,#063f7e);color:#c7d9eb;padding:2
 .features .feature-card p{line-height:1.48}
 @media (max-width:980px){.features{padding:72px 0 82px;scroll-margin-top:100px}.features .section-heading{margin-bottom:36px}.features .feature-card{padding:32px 30px}.features .feature-icon{width:132px;height:104px}}
 @media (min-width:981px){
-  .hero{min-height:100vh;padding:150px 0 28px}
-  .hero h1{font-size:clamp(2.45rem,4.25vw,3.8rem)}
+  .hero{min-height:auto;padding:150px 0 48px}
+  .hero h1{font-size:clamp(2.3rem,3.6vw,3.3rem)}
   .hero .lede{line-height:1.55}
-  .hero-actions{margin:22px 0}
-  .hero-points{margin-top:24px}
-  .product-scene{height:430px}
+  .hero-actions{margin:16px 0}
+  .hero-points{margin-top:14px}
+  .product-scene{height:400px}
   .floating-icon{width:88px}
   .video-orb{width:82px;height:82px;font-size:1.7rem}
 }
