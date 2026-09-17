@@ -24,7 +24,7 @@ footer{background:linear-gradient(90deg,#042b58,#063f7e);color:#c7d9eb;padding:2
 .hero-art{background-position:top center;background-size:100% auto}
 @media (max-width:640px){.hero-art{background-size:auto 320px;background-position:center top}}
 .feature-card:nth-child(3) .feature-icon img{object-fit:cover;object-position:center;transform:translateY(22px)}
-.video-section{scroll-margin-top:150px}
+.video-section{scroll-margin-top:90px}
 @media (max-width:640px){.video-section{scroll-margin-top:100px}}
 .features{padding:40px 0 48px;scroll-margin-top:130px}
 .features .section-heading{margin-bottom:24px}
