@@ -20,12 +20,20 @@ if(carousel){
   function goTo(i){
     const next=(i+slides.length)%slides.length;
     if(next===current)return;
-    slides[current].querySelector('video')?.pause();
-    slides[current].hidden=true;
+    const outgoing=slides[current];
+    const incoming=slides[next];
+    outgoing.querySelector('video')?.pause();
+    outgoing.classList.add('az-fade-out');
     dots[current]?.classList.remove('active');
-    current=next;
-    slides[current].hidden=false;
-    dots[current]?.classList.add('active');
+    setTimeout(()=>{
+      outgoing.hidden=true;
+      outgoing.classList.remove('az-fade-out');
+      incoming.hidden=false;
+      incoming.classList.add('az-fade-in');
+      requestAnimationFrame(()=>requestAnimationFrame(()=>incoming.classList.remove('az-fade-in')));
+      current=next;
+      dots[current]?.classList.add('active');
+    },260);
   }
   prevBtn?.addEventListener('click',()=>goTo(current-1));
   nextBtn?.addEventListener('click',()=>goTo(current+1));
@@ -36,3 +44,88 @@ if(carousel){
     dotsWrap?.setAttribute('hidden','');
   }
 }
+
+/* ===== Build de evaluacion: mejoras dinamicas (no publicado) ===== */
+const header=document.querySelector('.site-header');
+const progressBar=document.querySelector('.scroll-progress');
+const heroArt=document.querySelector('.hero-art');
+const familyArt=document.querySelector('.family-art');
+
+let ticking=false;
+function onScrollFrame(){
+  const y=window.scrollY;
+  header?.classList.toggle('is-scrolled',y>40);
+  if(progressBar){
+    const max=document.documentElement.scrollHeight-window.innerHeight;
+    progressBar.style.width=(max>0?y/max*100:0)+'%';
+  }
+  if(heroArt){
+    const r=heroArt.parentElement.getBoundingClientRect();
+    heroArt.style.transform='translateY('+(r.top*-0.08)+'px)';
+  }
+  if(familyArt){
+    const r=familyArt.parentElement.getBoundingClientRect();
+    familyArt.style.transform='translateY('+(r.top*-0.06)+'px)';
+  }
+  ticking=false;
+}
+window.addEventListener('scroll',()=>{if(!ticking){requestAnimationFrame(onScrollFrame);ticking=true}},{passive:true});
+onScrollFrame();
+
+const navList=document.querySelector('.site-header nav');
+const navIndicator=document.querySelector('.nav-indicator');
+function positionNavIndicator(){
+  if(!navIndicator||window.innerWidth<=980)return;
+  const activeLink=navList?.querySelector('a.active');
+  if(!activeLink)return;
+  navIndicator.style.left=activeLink.offsetLeft+'px';
+  navIndicator.style.width=activeLink.offsetWidth+'px';
+  navIndicator.style.opacity='1';
+}
+links.forEach(a=>{
+  const obs=new MutationObserver(positionNavIndicator);
+  obs.observe(a,{attributes:true,attributeFilter:['class']});
+});
+window.addEventListener('resize',positionNavIndicator);
+window.addEventListener('load',positionNavIndicator);
+setTimeout(positionNavIndicator,300);
+
+const scene=document.querySelector('.product-scene');
+const mockup=document.querySelector('.device-mockup');
+const logoIcon=document.querySelector('.floating-icon');
+if(scene&&mockup){
+  scene.addEventListener('mousemove',e=>{
+    const r=scene.getBoundingClientRect();
+    const px=(e.clientX-r.left)/r.width-0.5;
+    const py=(e.clientY-r.top)/r.height-0.5;
+    const tilt='perspective(1000px) rotateX('+(-py*6).toFixed(2)+'deg) rotateY('+(px*8).toFixed(2)+'deg)';
+    mockup.style.transition='none';
+    mockup.style.transform=tilt;
+    if(logoIcon){
+      logoIcon.style.transition='none';
+      logoIcon.style.transform=tilt;
+    }
+  });
+  scene.addEventListener('mouseleave',()=>{
+    mockup.style.transition='transform .5s ease';
+    mockup.style.transform='none';
+    if(logoIcon){
+      logoIcon.style.transition='transform .5s ease';
+      logoIcon.style.transform='none';
+    }
+  });
+}
+
+document.querySelectorAll('.button').forEach(btn=>{
+  btn.addEventListener('click',e=>{
+    const r=btn.getBoundingClientRect();
+    const ripple=document.createElement('span');
+    ripple.className='az-ripple';
+    const size=Math.max(r.width,r.height);
+    ripple.style.width=ripple.style.height=size+'px';
+    ripple.style.left=(e.clientX-r.left-size/2)+'px';
+    ripple.style.top=(e.clientY-r.top-size/2)+'px';
+    btn.appendChild(ripple);
+    ripple.addEventListener('animationend',()=>ripple.remove());
+  });
+});
