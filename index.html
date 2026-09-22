@@ -68,11 +68,29 @@
           <h2>Todo lo importante, <span>más cerca.</span></h2>
           <p>Conocé cómo Azimut acompaña a las familias antes de cada salida, campamento y nueva aventura.</p>
         </div>
-        <div class="video-frame reveal" id="video-player">
-          <video controls playsinline preload="metadata" poster="assets/video-cover.jpg">
-            <source src="assets/presentacion-azimut.mp4" type="video/mp4">
-            Tu navegador no puede reproducir este video.
-          </video>
+        <div class="video-carousel reveal" id="video-player">
+          <div class="video-frame" data-video-slide>
+            <video controls playsinline preload="metadata" poster="assets/video-cover.jpg">
+              <source src="assets/presentacion-azimut.mp4" type="video/mp4">
+              Tu navegador no puede reproducir este video.
+            </video>
+          </div>
+          <div class="video-frame" data-video-slide hidden>
+            <video controls playsinline preload="none" poster="assets/videos/encuestas-cover.jpg">
+              <source src="assets/videos/encuestas.mp4" type="video/mp4">
+              Tu navegador no puede reproducir este video.
+            </video>
+          </div>
+          <button class="video-arrow video-arrow-prev" type="button" aria-label="Video anterior">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 4 L7 12 L15 20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <button class="video-arrow video-arrow-next" type="button" aria-label="Video siguiente">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 4 L17 12 L9 20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="video-dots" role="tablist" aria-label="Seleccionar video">
+            <button class="video-dot active" type="button" aria-label="Ver video 1"></button>
+            <button class="video-dot" type="button" aria-label="Ver video 2"></button>
+          </div>
         </div>
       </div>
     </section>
