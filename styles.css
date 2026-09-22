@@ -54,7 +54,7 @@ footer{background:linear-gradient(90deg,rgba(4,43,88,.55),rgba(6,63,126,.55)),ur
 .site-header.is-scrolled .nav-wrap{height:78px;padding-top:0}
 .brand{transition:.3s ease transform}
 .site-header.is-scrolled .brand{transform:scale(.85);transform-origin:left center}
-.site-header nav{position:relative}
+@media (min-width:981px){.site-header nav{position:relative}}
 .nav-indicator{position:absolute;bottom:-15px;height:3px;border-radius:3px;background:var(--sky);opacity:0;transition:.3s ease left,.3s ease width,.3s ease opacity;pointer-events:none}
 @media (max-width:980px){.nav-indicator{display:none}}
 .hero-glow{animation:az-aurora 9s ease-in-out infinite}
