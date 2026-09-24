@@ -34,7 +34,9 @@
 
   <main id="contenido">
     <section class="hero" id="inicio">
-      <div class="hero-art" aria-hidden="true"></div>
+      <video class="hero-art hero-video" aria-hidden="true" autoplay muted loop playsinline preload="auto" poster="assets/hero-bg-poster.jpg">
+        <source src="assets/hero-bg.mp4" type="video/mp4">
+      </video>
       <div class="hero-glow"></div>
       <div class="shell hero-grid">
         <div class="hero-copy reveal">
@@ -45,11 +47,6 @@
             <a class="button" href="https://azimut-kappa.vercel.app" target="_blank" rel="noopener">Usar Azimut <span aria-hidden="true">→</span></a>
             <a class="button button-ghost" href="#video"><span class="play-mini" aria-hidden="true">▶</span> Ver cómo funciona</a>
           </div>
-          <ul class="hero-points" aria-label="Beneficios de Azimut">
-            <li><span>●</span> Más organización para las familias</li>
-            <li><span>♥</span> Un mismo camino para todos</li>
-            <li><span>✦</span> Enfocados en lo que realmente importa</li>
-          </ul>
         </div>
 
         <div class="product-scene reveal" aria-label="Vista de Azimut en computadora y teléfono">
@@ -58,8 +55,6 @@
           <img class="device-mockup" src="assets/hero-mockup.png" alt="Azimut en computadora y celular, mostrando el resumen del grupo y el saldo de una familia">
           <a class="video-orb" href="#video" aria-label="Ver video de presentación"><span>▶</span></a>
           <img class="floating-icon" src="assets/icono-azimut.png" alt="">
-          <p class="note note-top">Tu grupo,<br>siempre cerca</p>
-          <p class="note note-bottom">Simple, claro<br>y desde cualquier lugar</p>
         </div>
       </div>
     </section>
@@ -126,6 +121,9 @@
 
     <section class="family-section" id="familias">
       <div class="family-art" aria-hidden="true"></div>
+      <div class="family-sun-mask" aria-hidden="true">
+        <img class="family-sun" src="assets/sol-familias.png" alt="">
+      </div>
       <div class="shell family-content">
         <div class="family-message reveal">
           <p class="eyebrow">Sumate a Azimut</p>
